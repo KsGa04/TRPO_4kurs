@@ -1,0 +1,124 @@
+﻿<Window x:Class="TRPO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:TRPO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="560" MinHeight="700" MinWidth="560" MaxHeight="700" MaxWidth="560">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="MyLabelStyle">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Background" Value="Wheat"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="9"/>
+        </Style>
+        <Style TargetType="Ellipse" x:Key="MyEllipseStyle">
+            <Setter Property="Margin" Value="2,0,0,0"/>
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="Fill" Value="SandyBrown"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="SaddleBrown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0">
+            <Border BorderBrush="Black" BorderThickness="2"/>
+        </Border>
+        <Grid Grid.Column="1" Background="SandyBrown">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Grid.RowSpan="2" Source="https://static.displate.com/857x1200/displate/2015-11-06/c2fd139f41d5a600b9164965c3a8889e.jpg" Stretch="Fill" Margin="10"/>
+            <Border Grid.Row="3" Margin="20" BorderBrush="Black" BorderThickness="5">
+                <Grid Background="SaddleBrown">
+                    
+                </Grid>
+            </Border>
+        </Grid>
+        <Border Grid.Column="3" Height="400" BorderBrush="SandyBrown" BorderThickness="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="10" Background="SkyBlue" BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Label Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="2" Name="SumText" Foreground="Black" Content="Общая сумма:" FontSize="8"/>
+                        <Label Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="2" Name="Sum" Foreground="Black"  FontSize="8"/>
+                    </Grid>
+                </Border>
+                <Ellipse Name="cacao" Grid.Column="0" Grid.Row="1" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Какао 20р" Style="{StaticResource MyLabelStyle}"/>
+                <Ellipse Name="americano" Grid.Column="1" Grid.Row="1" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="1" Grid.Row="1" Content="Американо 25р" Style="{StaticResource MyLabelStyle}"/>
+
+                <Ellipse Name="latte" Grid.Column="0" Grid.Row="2" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Латте 20р" Style="{StaticResource MyLabelStyle}"/>
+                <Ellipse Name="tea" Grid.Column="1" Grid.Row="2" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="1" Grid.Row="2" Content="Чай 15р" Style="{StaticResource MyLabelStyle}"/>
+
+                <Ellipse Name="raf" Grid.Column="0" Grid.Row="3" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="0" Grid.Row="3" Content="Раф 20р" Style="{StaticResource MyLabelStyle}"/>
+                <Ellipse Name="capuchino" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyEllipseStyle}"/>
+                <Label Grid.Column="1" Grid.Row="3" Content="Капучино 25р" Style="{StaticResource MyLabelStyle}"/>
+                <Button Grid.Column="0" Grid.Row="4" Width="50" Height="10" BorderBrush="SandyBrown" BorderThickness="2" Background="SaddleBrown" x:Name="button" Click="button_Click"/>
+                <Popup x:Name="popup" Placement="Right" IsOpen="False" StaysOpen="False">
+                    <ItemsControl>
+                        <ListBox Name="bill" SelectionChanged="Bill_SelectionChanged">
+                            <ListBoxItem>50</ListBoxItem>
+                            <ListBoxItem>100</ListBoxItem>
+                            <ListBoxItem>500</ListBoxItem>
+                        </ListBox>
+                    </ItemsControl>
+                </Popup>
+                <Button Grid.Column="1" Grid.Row="4" Width="20" Height="10" BorderBrush="SandyBrown" BorderThickness="2" Background="SaddleBrown" x:Name="button1" Click="button1_Click"/>
+                <Popup  x:Name="popup1" Placement="Right" IsOpen="False" StaysOpen="False"> 
+                    <ItemsControl>
+                        <ListBox Name="coin" SelectionChanged="Coin_SelectionChanged">
+                            <ListBoxItem>1</ListBoxItem>
+                            <ListBoxItem>2</ListBoxItem>
+                            <ListBoxItem>5</ListBoxItem>
+                            <ListBoxItem>10</ListBoxItem>
+                        </ListBox>
+                    </ItemsControl>
+                </Popup>
+                <Grid Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="10" Width="50" Background="SandyBrown"/>
+                <Path Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" Fill="SandyBrown" Data="M 0 0 L 25 10 L 50 0 Z" />
+                <Border Grid.Row="5" Grid.Column="1" Margin="25,12,25,5" BorderBrush="Black" BorderThickness="1">
+                    <Grid Background="SaddleBrown">
+                        <Image Source="https://pichold.ru/wp-content/uploads/2022/11/монета-46.gif"/>
+                    </Grid>
+                </Border>
+                <Button Background="SandyBrown" Content="Оплатить" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="9"/>
+                <Button Background="SandyBrown" Content="Вернуть деньги" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="9" Margin="10"/>
+                <Button Background="SandyBrown" Content="Сдача" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1" FontSize="9"/>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Window>
