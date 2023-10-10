@@ -42,13 +42,13 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="200"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Image Grid.Row="1" Grid.RowSpan="2" Source="https://static.displate.com/857x1200/displate/2015-11-06/c2fd139f41d5a600b9164965c3a8889e.jpg" Stretch="Fill" Margin="10"/>
             <Border Grid.Row="3" Margin="20" BorderBrush="Black" BorderThickness="5">
                 <Grid Background="SaddleBrown">
-                    
+                    <Image Name="drink" Width="150" MouseLeftButtonDown="drink_MouseLeftButtonDown"/>
                 </Grid>
             </Border>
         </Grid>
@@ -70,21 +70,22 @@
                     <Grid>
                         <Label Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="2" Name="SumText" Foreground="Black" Content="Общая сумма:" FontSize="8"/>
                         <Label Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="2" Name="Sum" Foreground="Black"  FontSize="8"/>
+                        <Label Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="1" x:Name="drink_text" Foreground="Black" FontSize="8"/>
                     </Grid>
                 </Border>
-                <Ellipse Name="cacao" Grid.Column="0" Grid.Row="1" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="cacao" Grid.Column="0" Grid.Row="1" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="cacao_MouseLeftButtonDown"/>
                 <Label Grid.Column="0" Grid.Row="1" Content="Какао 20р" Style="{StaticResource MyLabelStyle}"/>
-                <Ellipse Name="americano" Grid.Column="1" Grid.Row="1" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="americano" Grid.Column="1" Grid.Row="1" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="americano_MouseLeftButtonDown"/>
                 <Label Grid.Column="1" Grid.Row="1" Content="Американо 25р" Style="{StaticResource MyLabelStyle}"/>
 
-                <Ellipse Name="latte" Grid.Column="0" Grid.Row="2" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="latte" Grid.Column="0" Grid.Row="2" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="latte_MouseLeftButtonDown"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Латте 20р" Style="{StaticResource MyLabelStyle}"/>
-                <Ellipse Name="tea" Grid.Column="1" Grid.Row="2" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="tea" Grid.Column="1" Grid.Row="2" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="tea_MouseLeftButtonDown"/>
                 <Label Grid.Column="1" Grid.Row="2" Content="Чай 15р" Style="{StaticResource MyLabelStyle}"/>
 
-                <Ellipse Name="raf" Grid.Column="0" Grid.Row="3" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="raf" Grid.Column="0" Grid.Row="3" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="raf_MouseLeftButtonDown"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="Раф 20р" Style="{StaticResource MyLabelStyle}"/>
-                <Ellipse Name="capuchino" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyEllipseStyle}"/>
+                <Ellipse Name="capuchino" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyEllipseStyle}" MouseLeftButtonDown="capuchino_MouseLeftButtonDown"/>
                 <Label Grid.Column="1" Grid.Row="3" Content="Капучино 25р" Style="{StaticResource MyLabelStyle}"/>
                 <Button Grid.Column="0" Grid.Row="4" Width="50" Height="10" BorderBrush="SandyBrown" BorderThickness="2" Background="SaddleBrown" x:Name="button" Click="button_Click"/>
                 <Popup x:Name="popup" Placement="Right" IsOpen="False" StaysOpen="False">
@@ -110,13 +111,12 @@
                 <Grid Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="10" Width="50" Background="SandyBrown"/>
                 <Path Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" Fill="SandyBrown" Data="M 0 0 L 25 10 L 50 0 Z" />
                 <Border Grid.Row="5" Grid.Column="1" Margin="25,12,25,5" BorderBrush="Black" BorderThickness="1">
-                    <Grid Background="SaddleBrown">
-                        <Image Source="https://pichold.ru/wp-content/uploads/2022/11/монета-46.gif"/>
+                    <Grid Background="Black">
+                        <MediaElement x:Name="gifImage"/>
                     </Grid>
                 </Border>
-                <Button Background="SandyBrown" Content="Оплатить" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="9"/>
-                <Button Background="SandyBrown" Content="Вернуть деньги" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="9" Margin="10"/>
-                <Button Background="SandyBrown" Content="Сдача" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1" FontSize="9"/>
+                <Button x:Name="refuld_money" Background="SandyBrown" Content="Вернуть деньги" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="9" Margin="10" Click="change_Click"/>
+                <Button x:Name="change" Background="SandyBrown" Content="Сдача" Width="70" Height="15" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" FontSize="9" Click="change_Click"/>
             </Grid>
         </Border>
         
